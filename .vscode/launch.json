@@ -15,7 +15,7 @@
             "name": "Launch LXStudioApp",
             "request": "launch",
             "mainClass": "heronarts.lx.app.LXStudioApp",
-            "projectName": "lxstudio-ide",
+            "projectName": "lxstudio-ide"
         }
     ]
 }

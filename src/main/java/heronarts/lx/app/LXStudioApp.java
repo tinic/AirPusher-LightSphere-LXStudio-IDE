@@ -61,6 +61,7 @@ public class LXStudioApp extends PApplet implements LXPlugin {
   @Override
   public void setup() {
     LXStudio.Flags flags = new LXStudio.Flags(this);
+    flags.mediaPath = System.getProperty("user.dir");
     flags.resizable = true;
     flags.useGLPointCloud = false;
     flags.startMultiThreaded = true;
