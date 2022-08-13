@@ -28,6 +28,7 @@ import heronarts.lx.studio.LXStudio;
 import heronarts.p4lx.ui.component.UICollapsibleSection;
 import heronarts.p4lx.ui.component.UIKnob;
 import processing.core.PApplet;
+import airpusher.AirpusherApp;
 
 /**
  * This is an example top-level class to build and run an LX Studio
@@ -93,6 +94,7 @@ public class LXStudioApp extends PApplet implements LXPlugin {
 
   // A global component for additional project-specific parameters, if desired
   public MyComponent myComponent;
+  public AirpusherApp airpusherApp;
 
   @Override
   public void initialize(LX lx) {
@@ -112,6 +114,7 @@ public class LXStudioApp extends PApplet implements LXPlugin {
     this.myComponent = new MyComponent(lx);
     lx.engine.registerComponent("myComponent", this.myComponent);
 
+    this.airpusherApp = new AirpusherApp(lx);
   }
 
   public void initializeUI(LXStudio lx, LXStudio.UI ui) {
