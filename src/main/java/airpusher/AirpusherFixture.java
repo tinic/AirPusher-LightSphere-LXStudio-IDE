@@ -9,15 +9,20 @@ import heronarts.lx.transform.LXMatrix;
 
 public class AirpusherFixture extends LXBasicFixture {
 
+    // We have 12 side brackets, with either 3 or 4 spotlights
     private int bracketCount = 12;
+
+    // 6 * 3 spotlights + 6 * 4 spotlights
     private int ledCount = 42;
 
+    // coordinates are in mm
     private LXPoint[] bracket3template = {
         new LXPoint( + 0.00, 192.07 + 64.0, -197.67 ),
         new LXPoint( + 0.00, 274.57 + 64.0, +  0.00 ),
         new LXPoint( + 0.00, 192.07 + 64.0, +197.67 )
     };
 
+    // coordinates are in mm
     private LXPoint[] bracket4template = {
         new LXPoint( + 0.00, 150.07 + 64.0, -227.21 ),
         new LXPoint( + 0.00, 251.44 + 64.0, - 88.33 ),
@@ -40,6 +45,7 @@ public class AirpusherFixture extends LXBasicFixture {
             LXMatrix rotMat = new LXMatrix();
             rotMat.rotateZ((float)(Math.PI * 2.0 / (double)bracketCount * (double)bracket));
 
+            // Alternate between the two bracket types
             if ( (bracket % 2) == 0 ) { // 4 leds
                 for (int led = 0; led < bracket4template.length; led++) {
                     leds[ledCount] = new LXPoint(bracket4template[led]).multiply(rotMat);
