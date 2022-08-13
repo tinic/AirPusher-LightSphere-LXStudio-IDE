@@ -6,12 +6,6 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
             "name": "Launch LXStudioApp",
             "request": "launch",
             "mainClass": "heronarts.lx.app.LXStudioApp",
