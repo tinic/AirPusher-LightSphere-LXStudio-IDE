@@ -1,0 +1,4 @@
+mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile="lib/processing-4.0b8/core-4.0b8.jar" -DgroupId="org.processing" -DartifactId=core -Dversion="4.0b8" -Dpackaging=jar -DlocalRepositoryPath=lib
+mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile="lib/processing-4.0b8/jogl-all-4.0b8.jar" -DgroupId="org.jogamp.jogl" -DartifactId=jogl-all -Dversion="4.0b8" -Dpackaging=jar -DlocalRepositoryPath=lib
+mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile="lib/processing-4.0b8/gluegen-rt-4.0b8.jar" -DgroupId="org.jogamp.gluegen" -DartifactId=gluegen-rt-main -Dversion="4.0b8" -Dpackaging=jar -DlocalRepositoryPath=lib
+mvn org.apache.maven.plugins:maven-install-plugin:2.5.2:install-file -Dfile="lib/lxstudio-0.4.1.jar" -DgroupId="com.heronarts" -DartifactId=lxstudio-ide -Dversion="0.4.1" -Dpackaging=jar -DlocalRepositoryPath=lib
