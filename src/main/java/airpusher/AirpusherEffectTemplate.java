@@ -10,7 +10,7 @@ import heronarts.lx.model.LXPoint;
 // Register effects in the AirpusherApp constructor
 //
 
-@LXCategory(LXCategory.TEXTURE)
+@LXCategory(LXCategory.COLOR)
 public class AirpusherEffectTemplate extends LXEffect {
 
   public AirpusherEffectTemplate(LX lx) {
