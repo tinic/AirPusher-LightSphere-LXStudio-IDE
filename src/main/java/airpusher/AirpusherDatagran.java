@@ -26,6 +26,13 @@ public class AirpusherDatagran extends ArtNetDatagram {
     
     static int dmxControlChannels = 6;
 
+    static int dmxCH1Master = 0;
+    static int dmxCH2Red = 1;
+    static int dmxCH3Green = 2;
+    static int dmxCH4Blue = 3;
+    static int dmxCH5Strobe = 4;
+    static int dmxCH6Effect = 5;
+
     public AirpusherDatagran(LX lx, int[] indexBuffer) {
         super(lx, indexBuffer, ByteOrder.RGB, indexBuffer.length * dmxControlChannels, 0);
     }
@@ -56,12 +63,12 @@ public class AirpusherDatagran extends ArtNetDatagram {
         for (int i = 0; i < segment.indices.length; ++i) {
             int index = segment.indices[i];
             int color = (index >= 0) ? colors[index] : 0;
-            buffer[offset + 0]                 = (byte)0xff; // CH1: master brightness
-            buffer[offset + 1 + byteOffset[0]] = gamma[((color >> 16) & 0xff)]; // CH2: Red
-            buffer[offset + 2 + byteOffset[1]] = gamma[((color >>  8) & 0xff)]; // CH3: Green
-            buffer[offset + 3 + byteOffset[2]] = gamma[((color      ) & 0xff)]; // CH4: Blue
-            buffer[offset + 4]                 = 0; // CH5: turn strobe off
-            buffer[offset + 5]                 = 0; // CH6: turn effect off
+            buffer[offset + dmxCH1Master]                = (byte)0xff; // CH1: master brightness to max
+            buffer[offset + dmxCH2Red   + byteOffset[0]] = gamma[((color >> 16) & 0xff)]; // CH2: Red
+            buffer[offset + dmxCH3Green + byteOffset[1]] = gamma[((color >>  8) & 0xff)]; // CH3: Green
+            buffer[offset + dmxCH4Blue  + byteOffset[2]] = gamma[((color      ) & 0xff)]; // CH4: Blue
+            buffer[offset + dmxCH5Strobe]                = 0; // CH5: turn strobe off
+            buffer[offset + dmxCH6Effect]                = 0; // CH6: turn effect off
             offset += dmxControlChannels;
         }
 
