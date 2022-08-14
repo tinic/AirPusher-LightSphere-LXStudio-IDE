@@ -1,30 +1,39 @@
 package airpusher;
 
 import heronarts.lx.LX;
-import heronarts.lx.model.LXModel;
-
 import java.net.Inet4Address;
-import java.net.InetAddress;
-
-import airpusher.AirpusherFixture;
 
 public class AirpusherApp {
     public AirpusherApp(LX lx) {
+        // Register patterns
+        lx.registry.addPattern(AirpusherPatternTemplate.class);
+
+        // Register effects
+        lx.registry.addEffect(AirpusherEffectTemplate.class);
+
+        // Init stationaries
+        initStationaries(lx);
+    }
+
+    public void initStationaries(LX lx) {
+
+        // Our main and only fixture
         lx.registry.addFixture(AirpusherFixture.class);
 
+        // DMX address/channel config on the globe
         int[] indexBuffer = { 
-            0, 1, 2, 3,
-            4, 5, 6,
-            7, 8, 9, 10,
-            11, 12, 13,
-            14, 15, 16, 17,
-            18, 19, 20,
-            21, 22, 23, 24,
-            25, 26, 27,
-            28, 29, 30, 31,
-            32, 33, 34, 
-            35, 36, 37, 38,
-            39, 40, 31
+            0, 1, 2, 3,     // bracket 00
+            4, 5, 6,        // bracket 01
+            7, 8, 9, 10,    // bracket 02
+            11, 12, 13,     // bracket 03
+            14, 15, 16, 17, // bracket 04
+            18, 19, 20,     // bracket 05
+            21, 22, 23, 24, // bracket 06
+            25, 26, 27,     // bracket 07
+            28, 29, 30, 31, // bracket 08
+            32, 33, 34,     // bracket 09
+            35, 36, 37, 38, // bracket 10
+            39, 40, 31      // bracket 11
         };
 
         AirpusherDatagran datagram = new AirpusherDatagran(lx, indexBuffer);
