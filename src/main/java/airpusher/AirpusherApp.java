@@ -4,6 +4,9 @@ import heronarts.lx.LX;
 import java.net.Inet4Address;
 
 public class AirpusherApp {
+
+    public String artNetControllerIP = "10.10.33.2";
+
     public AirpusherApp(LX lx) {
         // Register patterns
         lx.registry.addPattern(AirpusherPatternTemplate.class);
@@ -38,7 +41,7 @@ public class AirpusherApp {
 
         AirpusherDatagran datagram = new AirpusherDatagran(lx, indexBuffer);
         try {
-            datagram.setAddress(Inet4Address.getByName("10.10.33.2"));
+            datagram.setAddress(Inet4Address.getByName(artNetControllerIP));
             lx.addOutput(datagram);
         }
         catch(Exception e) {
