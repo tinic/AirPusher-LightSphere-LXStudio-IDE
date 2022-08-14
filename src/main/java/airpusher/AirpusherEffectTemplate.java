@@ -13,17 +13,17 @@ import heronarts.lx.model.LXPoint;
 @LXCategory(LXCategory.COLOR)
 public class AirpusherEffectTemplate extends LXEffect {
 
-  public AirpusherEffectTemplate(LX lx) {
-    super(lx);
-  }
-
-  @Override
-  protected void run(double deltaMs, double enabledAmount) {
-    if (enabledAmount > 0) {
-      for (LXPoint p : this.model.points) {
-        colors[p.index] = LXColor.hsb(0, 0, enabledAmount * 100);
-      }
+    public AirpusherEffectTemplate(LX lx) {
+        super(lx);
     }
-  }
+
+    @Override
+    protected void run(double deltaMs, double enabledAmount) {
+        if (enabledAmount > 0) {
+            for (LXPoint p : this.model.points) {
+                colors[p.index] = LXColor.hsb(0, 0, enabledAmount * 100);
+            }
+        }
+    }
 
 }

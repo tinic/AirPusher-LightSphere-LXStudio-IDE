@@ -2,6 +2,8 @@ package airpusher;
 
 import java.util.List;
 
+import tinic.LXFloat4;
+
 import heronarts.lx.LX;
 import heronarts.lx.model.LXPoint;
 import heronarts.lx.structure.LXBasicFixture;
@@ -29,6 +31,11 @@ public class AirpusherFixture extends LXBasicFixture {
         new LXPoint( + 0.00, 251.44 + 64.0, + 88.33 ),
         new LXPoint( + 0.00, 150.07 + 64.0, +227.21 )
     };
+
+    // Calulated in computePointGeometry
+    static LXFloat4 boundsMin = new LXFloat4();
+    static LXFloat4 boundsMax = new LXFloat4();
+    static LXFloat4 boundsSize = new LXFloat4();
 
     public AirpusherFixture(LX lx) {
         super(lx, "Airpusher");
@@ -58,6 +65,18 @@ public class AirpusherFixture extends LXBasicFixture {
                 }
             }
         }
+
+        LXFloat4 min = new LXFloat4(Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE, Float.MAX_VALUE);
+        LXFloat4 max = new LXFloat4(Float.MIN_VALUE, Float.MIN_VALUE, Float.MIN_VALUE, Float.MIN_VALUE);
+
+        for (LXPoint led : leds) {
+            min = min.min(new LXFloat4(led));
+            max = max.max(new LXFloat4(led));
+        }
+
+        boundsMin = min;
+        boundsMax = max;
+        boundsSize = LXFloat4.sub(max,min);
 
         ledCount = 0;
         for (LXPoint p : points) {
