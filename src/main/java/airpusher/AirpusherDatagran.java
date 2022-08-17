@@ -71,7 +71,7 @@ public class AirpusherDatagran extends ArtNetDatagram {
             buffer[offset + dmxCH6Effect]                = 0; // CH6: turn effect off
             offset += dmxControlChannels;
         }
-
+        
         return this;
     }
 

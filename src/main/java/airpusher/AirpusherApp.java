@@ -5,7 +5,7 @@ import java.net.Inet4Address;
 
 public class AirpusherApp {
 
-    public String artNetControllerIP = "10.10.33.2";
+    public String artNetControllerIP = "10.10.34.2";
 
     public AirpusherApp(LX lx) {
         // Register patterns
@@ -48,3 +48,4 @@ public class AirpusherApp {
         }
     }
 }
+
