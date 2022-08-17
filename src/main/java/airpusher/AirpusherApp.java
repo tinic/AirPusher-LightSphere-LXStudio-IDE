@@ -39,7 +39,7 @@ public class AirpusherApp {
             39, 40, 31      // bracket 11
         };
 
-        AirpusherDatagran datagram = new AirpusherDatagran(lx, indexBuffer);
+        AirpusherDatagram datagram = new AirpusherDatagram(lx, indexBuffer);
         try {
             datagram.setAddress(Inet4Address.getByName(artNetControllerIP));
             lx.addOutput(datagram);
